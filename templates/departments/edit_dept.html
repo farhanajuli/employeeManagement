@@ -1,0 +1,28 @@
+{% extends "employees/base.html" %} 
+{% load static %} 
+
+{% block title %}Edit Department{% endblock %}
+{% block header %}Edit Department{% endblock %}
+{% block content %}
+
+ <!-- Custom CSS -->
+ <link rel="stylesheet" href="{% static '/css/add_client.css' %}">
+
+<title>Edit Department</title>
+<main class="main-container">
+  <form action="" method="post">
+    {% csrf_token %}
+    <label for="dept_name">Department Name</label><br >
+    <input
+      type="text"
+      id="dept_name"
+      name="dept_name"
+      value="{{ dept.dept_name }}"
+      class="text-white"><br>
+      
+      <hr>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</main>
+  
+{% endblock %}

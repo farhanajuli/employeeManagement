@@ -1,0 +1,60 @@
+{% extends "employees/base.html" %} 
+{% load static %} 
+
+{% block title %}Add Client{% endblock %}
+{% block header %}Add Client{% endblock %}
+{% block content %}
+
+ <!-- Custom CSS -->
+ <link rel="stylesheet" href="{% static '/css/add_client.css' %}">
+
+<title>Add Client</title>
+<main class="main-container">
+  <form action="/add_client/" method="post">
+    {% csrf_token %}
+    <label for="client_name">Client Name</label><br >
+    <input
+      type="text"
+      id="client_name"
+      name="client_name"
+      value="{{ client_name }}"
+      class="text-white"><br>
+
+    <label for="client_email">Email</label><br>
+    <input
+      type="client_email"
+      id="client_email"
+      name="client_email"
+      value="{{ client_email }}"
+      class="text-white"><br>
+
+    <label for="client_phone">Phone Number</label><br >
+    <input
+      type="number"
+      id="client_phone"
+      name="client_phone"
+      value="{{ client_phone }}"
+      class="text-white"><br>
+
+    <label for="gender">Gender</label><br >
+    <input
+      type="text"
+      id="gender"
+      name="gender"
+      value="{{ gender }}"
+      class="text-white"><br>
+
+    <label for="website">Website</label><br >
+    <input
+      type="text"
+      id="website"
+      name="website"
+      value="{{ website }}"
+      class="text-white"><br>
+
+    <hr>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</main>
+
+{% endblock %}

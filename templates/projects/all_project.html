@@ -1,0 +1,57 @@
+{% extends "employees/base.html" %} 
+{% load static %} 
+
+{% block title %}All Projects{% endblock %}
+{% block header %}All Projects{% endblock %}
+{% block content %}
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{% static '/css/view_all_emp.css' %}">
+
+<!-- Main -->
+<main class="main-container">
+    
+    <table class="table text-white">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Project Name</th>
+          <th scope="col">Client Name</th>
+          <th scope="col">Department</th>
+          <th scope="col">Priority</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Details</th>
+          <th scope="col">Edit</th>
+        </tr>
+      </thead>
+        {% for project in projects %}
+      <tbody>
+        <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td>{{project.project_name}}</td>
+          <td>{{project.client_name}}</td>
+          <td>{{project.dept}}</td>
+          <td>{% if project.priority %}
+            <span type="button" class="btn btn-danger">High</span>
+            {% else %}
+            <span type="button" class="btn btn-success">Low</span>
+            {% endif %}
+            </td>
+          <td>${{project.amount}}</td>
+          <td style="width: 400px;">{{project.project_details}}</td>
+          <td>
+            <a href="{% url 'edit_project' project.id %}">
+                <button class="btn btn-warning btn-sm">Edit</button>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+    
+      </tbody>
+    </table>
+
+
+</main>
+<!-- End Main -->
+
+{% endblock %}

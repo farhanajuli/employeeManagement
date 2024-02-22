@@ -1,0 +1,63 @@
+{% extends "employees/base.html" %} 
+{% load static %} 
+
+{% block title %}Add Project{% endblock %}
+{% block header %}Add Project{% endblock %}
+{% block content %}
+
+ <!-- Custom CSS -->
+ <link rel="stylesheet" href="{% static '/css/add_client.css' %}">
+
+<title>Add Client</title>
+<main class="main-container">
+  <form action="/add_project/" method="post">
+    {% csrf_token %}
+    <label for="project_name">Project Name</label><br >
+    <input
+      type="text"
+      id="project_name"
+      name="project_name"
+      value="{{ project_name }}"
+      class="text-white"><br>
+
+    <label for="client_name">Client Name</label><br>
+    <select name="client_name" aria-label="Default select example" class= "bg-transparent text-white">
+        {% for c in clients %}
+        <option class="bg-transparent text-dark" value="{{c.client_name}}">{{c.client_name}}</option>
+        {% endfor %}
+    </select>
+    <br>
+
+    <label for="dept_name">Department</label><br>
+    <select name="dept_name" aria-label="Default select example" class= "bg-transparent text-white">
+      {% for dept in depts %}
+      <option class="bg-transparent text-dark" value="{{dept.dept_name}}">{{dept.dept_name}}</option>
+      {% endfor %}
+    </select>
+    <br>
+
+    <label for="amount">Amount</label><br >
+    <input
+      type="number"
+      id="amount"
+      name="amount"
+      value="{{ amount }}"
+      class="text-white"><br>
+
+    <label for="priority">Priority</label><br >
+    <input
+      type="text"
+      id="priority"
+      name="priority"
+      value="{{ priority }}"
+      class="text-white"><br>
+
+    <label for="project_details">Project Details</label><br>
+    <textarea type="text" id="project_details" name="project_details" value="{{project_details}}" class= "bg-transparent text-white" style="width: 350px"rows="5"></textarea> <br>
+
+    <hr>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</main>
+
+{% endblock %}

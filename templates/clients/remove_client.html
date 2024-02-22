@@ -1,0 +1,28 @@
+{% extends "employees/base.html" %} 
+{% load static %} 
+
+{% block title %}Remove Client{% endblock %}
+{% block header %}Remove Client{% endblock %}
+
+{% block content %}
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{% static '/css/remove_client.css' %}">
+
+ <!-- Main -->
+<main class="main-container">
+      
+  <div class="dropdown" data-bs-theme="dark">
+    <button class="btn text-white dropdown-toggle" type="button" id="dropdownMenuButtonDark" data-bs-toggle="dropdown" aria-expanded="false">
+      Choose Client To Be Removed
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      {% for client in clients %}
+      <li><a class="dropdown-item" href="/remove_client/{{client.id}}">{{client.client_name}}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+</main>
+
+{% endblock %}

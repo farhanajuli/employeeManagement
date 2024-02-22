@@ -1,0 +1,28 @@
+{% extends "employees/base.html" %} 
+{% load static %} 
+
+{% block title %}Remove project{% endblock %}
+{% block header %}Remove project{% endblock %}
+
+{% block content %}
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{% static '/css/remove_project.css' %}">
+
+ <!-- Main -->
+<main class="main-container">
+      
+  <div class="dropdown" data-bs-theme="dark">
+    <button class="btn text-white dropdown-toggle" type="button" id="dropdownMenuButtonDark" data-bs-toggle="dropdown" aria-expanded="false">
+      Choose which project is done
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      {% for project in projects %}
+      <li><a class="dropdown-item" href="/remove_project/{{project.id}}">{{project.project_name}}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+</main>
+
+{% endblock %}

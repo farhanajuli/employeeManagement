@@ -1,0 +1,31 @@
+{% extends "employees/base.html" %} 
+{% load static %} 
+
+{% block title %}Filter Employee{% endblock %}
+{% block header %}Filter Employee{% endblock %}
+
+{% block content %}
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{% static '/css/filter_emp.css' %}">
+
+<!-- Main -->
+<main class="main-container">
+    <form action="/filter_emp/" method="post">
+  {% csrf_token %}
+  <label for="name">Employee First/Last Name</label><br>
+  <input type="text" id="name" name="name" value="{{ name }}" class="text-white"><br>
+
+  <label for="dept">Department</label><br>
+  <input type="text" id="dept" name="dept" value="{{ dept }}" class="text-white"><br>
+
+  <label for="role">Role</label><br>
+  <input type="text" id="role" name="role" value="{{ role }}" class="text-white"><br>
+  <hr>
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+  </form>
+
+</main>
+
+{% endblock %}

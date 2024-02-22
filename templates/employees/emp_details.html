@@ -1,0 +1,35 @@
+{% extends "employees/base.html" %} 
+{% load static %} 
+
+{% block title %}Employee Details{% endblock %}
+{% block header %}Employee Details{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static '/css/dashboard.css' %}">
+
+
+<main class="container mt-4 my-3" style="width:550px;">
+
+    <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body text-light">
+              <h5>Name: {{emp.first_name}} {{emp.last_name}}</h5>
+              <h6>Email: {{emp.email}}</h6>
+              <h6>Phone: {{emp.phone}}</h6>
+              <h6>Role: {{emp.role}}</h6>
+              <h6>Department: {{emp.dept}}</h6>
+              <h6>Salary: {{emp.salary}}</h6>  
+              <h6>Bonus: {{emp.bonus}}</h6>
+              <h6>Joined at: {{emp.hire_date}}</h6>
+      
+            </div>
+          </div>
+        </div>
+    </div>
+</main>
+
+
+
+{% endblock %}

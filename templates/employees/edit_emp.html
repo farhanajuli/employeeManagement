@@ -1,0 +1,88 @@
+{% extends "employees/base.html" %} 
+{% load static %} 
+
+{% block title %}Edit employee{% endblock %}
+{% block header %}Edit employee{% endblock %}
+{% block content %}
+
+ <!-- Custom CSS -->
+ <link rel="stylesheet" href="{% static '/css/add_emp.css' %}">
+
+<title>Edit Employee</title>
+<main class="main-container">
+  <form action="" method="post">
+    {% csrf_token %}
+    <label for="first_name">First Name</label><br >
+    <input
+      type="text"
+      id="first_name"
+      name="first_name"
+      value="{{ emp.first_name }}"
+      class="text-white"><br>
+
+    <label for="last_name">Last Name</label><br>
+    <input
+      type="text"
+      id="last_name"
+      name="last_name"
+      value="{{ emp.last_name }}"
+      class="text-white"><br>
+
+    <label for="email">Email</label><br>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      value="{{ emp.email }}"
+      class="text-white"><br>
+
+    <label for="phone">Phone Number</label><br >
+    <input
+      type="number"
+      id="phone"
+      name="phone"
+      value="{{ emp.phone }}"
+      class="text-white"><br>
+    
+
+      <label for="dept_name">Department</label><br>
+      <select name="dept_name" aria-label="Default select example" class= "bg-transparent text-white">
+        {% for dept in depts %}
+        <option class="bg-transparent text-dark" value="{{dept.dept_name}}">{{dept.dept_name}}</option>
+        {% endfor %}
+      </select>
+      <br>
+  
+      <label for="role_name">Role</label><br>
+      <select name="role_name" aria-label="Default select example" class= "bg-transparent text-white">
+        {% for role in roles %}
+        <option class="bg-transparent text-dark" value="{{role.role_name}}">{{role.role_name}}</option>
+        {% endfor %}
+      </select>
+      <br> 
+  
+      <label for="salary">Salary</label><br >
+      <input
+        type="number"
+        id="salary"
+        name="salary"
+        value="{{ emp.salary }}"
+        class="text-white"><br>
+  
+      <label for="bonus">Bonus</label><br >
+      <input
+        type="number"
+        id="bonus"
+        name="bonus"
+        value="{{ emp.bonus }}"
+        class="text-white"><br>
+
+      <label for="hire_date">Hire Date</label><br>
+      <input type="datetime-local" id="hire_date" name="hire_date" class="text-white"><br>
+
+    <hr>
+    <button type="submit" class="btn btn-primary">Edit</button>
+  </form>
+</main>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+
+{% block content %}
+
+<main class="main-container">
+    <div class="container">
+        <h1 style="color:#00308F; font-size: 44px; text-align:center;">OEMS <br>
+            <span style="color:black; font-size:32px; font-weight:bold; text-align:center;">
+            Office Employee Management System
+            </span>
+        </h1>
+        <hr>
+        <h1>Name: {{emp.first_name}} {{emp.last_name}}</h1>
+        <h2>Email: {{emp.email}}</h2>
+        <h2>Phone: {{emp.phone}}</h2>
+        <h2>Role: {{emp.role}}</h2>
+        <h2>Department: {{emp.dept.name}}</h2>
+        <h2>Joined at: {{emp.hire_date}}</h2>
+        <h2>Today: {% now "Y-m-d" %}</h2>
+        <br>
+        <h2>Salary: {{emp.salary}}</h2>  
+        <h2>Bonus: {{emp.bonus}}</h2>
+        <hr>
+        <h1>Total Salary: {{emp.total_salary}}</h1>
+
+</main>
+
+
+{% endblock %}

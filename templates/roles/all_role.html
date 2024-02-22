@@ -1,0 +1,45 @@
+{% extends "employees/base.html" %} 
+{% load static %} 
+
+{% block title %}All Role{% endblock %}
+{% block header %}All Role{% endblock %}
+{% block content %}
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{% static '/css/view_all_emp.css' %}">
+
+<!-- Main -->
+<main class="main-container">
+    
+    <table class="table text-white">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Role Name</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+        {% for role in roles %}
+      <tbody>
+        <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td>{{role.role_name}}</td>
+          <td>
+            <a href="{% url 'edit_role' role.id %}">
+                <button class="btn btn-warning btn-sm">Edit</button>
+            </a>
+            <a href="{% url 'remove_role' role.id %}" onClick="return confirm('Are you sure?')">
+                <button class="btn btn-danger btn-sm">Delete</button>
+            </a>
+        </td>
+        </tr>
+        {% endfor %}
+    
+      </tbody>
+    </table>
+
+
+</main>
+<!-- End Main -->
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "employees/base.html" %} 
+{% load static %} 
+
+{% block title %}Add Role{% endblock %}
+{% block header %}Add Role{% endblock %}
+{% block content %}
+
+ <!-- Custom CSS -->
+ <link rel="stylesheet" href="{% static '/css/add_client.css' %}">
+
+<title>Add Role</title>
+<main class="main-container">
+  <form action="" method="post">
+    {% csrf_token %}
+    <label for="role_name">Role Name</label><br >
+    <input
+      type="text"
+      id="role_name"
+      name="role_name"
+      value="{{ role.role_name }}"
+      class="text-white"><br>
+      
+      <hr>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</main>
+  
+  {% endblock %}
